@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4a199aba-e8f8-4597-b059-1604151adb02">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[select * from tab_perso]]>
+	</queryString>
+	<field name="num_perso" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nom_pre_perso" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="sexe_perso" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="dt_nais_perso" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="situ_perso" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nbr_enf_perso" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="adrs_perso" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tel_perso" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<columnHeader>
+		<band height="109" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="83" width="555" height="1" uuid="9e5e600c-9aff-4740-a28d-3719479987de"/>
+			</line>
+			<staticText>
+				<reportElement x="37" y="10" width="124" height="20" forecolor="#0066FF" uuid="170e5ee1-7154-4a9d-b78e-2a7146f34124"/>
+				<textElement>
+					<font size="14" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[AUTO-TRACTOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="30" width="219" height="21" forecolor="#0066FF" uuid="0098a3d6-62b8-43f0-9ee8-9377c5423061"/>
+				<textElement>
+					<font size="9" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[ BP:1462 ZOROZOROANA-FIANARANTSOA 301                 ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="12" y="51" width="217" height="20" forecolor="#0066FF" uuid="d8110424-6aa8-4abd-8563-e75b37b8913f"/>
+				<textElement>
+					<font size="9" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Tél:020 75 509 01 - 034 75 509 01]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="271" y="20" width="255" height="31" uuid="1a4eca57-a6e3-4734-9b8b-2bd6bbd255d6"/>
+				<textElement>
+					<font size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[LISTE DES PERSONNELS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="357" y="0" width="69" height="20" uuid="2042da33-7355-48bd-a80f-995a9236602d"/>
+				<text><![CDATA[Aujourd'hui le:]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="426" y="0" width="100" height="20" uuid="3c117ec2-9390-4e7b-8e84-d2d1adf44ece"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="89" width="26" height="20" uuid="da307364-c7c6-435e-a208-78a513687d62"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Sexe]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="37" y="89" width="83" height="20" uuid="d38bfae9-f106-48ff-8be7-210b29220ffd"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Date de naissiance]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="134" y="89" width="90" height="20" uuid="488c59e4-7839-4113-9afb-40060b26a23e"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Situation familliale]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="460" y="89" width="90" height="20" uuid="f5bca073-f0de-4129-9bb9-eadc473bc9c1"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Téléphone]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="224" y="89" width="47" height="20" uuid="b072fc1b-8fa2-411f-90cf-a8d0ad53e49d"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Enfant(s)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="292" y="89" width="110" height="20" uuid="c66594a7-3139-4dc6-b19d-bd56ec107896"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Adresses]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="108" width="555" height="1" uuid="b08b19c8-543e-47b1-8d8c-82e8e9e1a31d"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="48" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="2" width="555" height="23" backcolor="#CCCCCC" uuid="3c8da11b-6b09-4e65-a02b-3e73a9d0d0b7"/>
+				<textField>
+					<reportElement x="10" y="3" width="100" height="20" forecolor="#FFFFFF" uuid="f5e97ee8-2002-407c-a934-2f4a18d0f816"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{num_perso}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="96" y="3" width="459" height="20" forecolor="#FFFFFF" uuid="ec75c190-8501-4a7d-bd37-0888adf692e6"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{nom_pre_perso}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<textField>
+				<reportElement x="0" y="26" width="37" height="20" uuid="ad0bb525-f0a4-498f-b822-85fed8945167"/>
+				<textFieldExpression><![CDATA[$F{sexe_perso}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="37" y="26" width="97" height="20" uuid="0d915b80-d3c8-4c47-a4a5-6af56e5e458e"/>
+				<textFieldExpression><![CDATA[$F{dt_nais_perso}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="134" y="28" width="90" height="20" uuid="cefa729f-5902-437c-8a8e-4efd96be7e2f"/>
+				<textFieldExpression><![CDATA[$F{situ_perso}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="224" y="26" width="47" height="20" uuid="8433825c-9515-444a-926c-185b6a35cf2f"/>
+				<textFieldExpression><![CDATA[$F{nbr_enf_perso}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="271" y="26" width="185" height="20" uuid="60d7511f-7208-4a3d-a159-65719ddfc5b5"/>
+				<textFieldExpression><![CDATA[$F{adrs_perso}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="456" y="26" width="100" height="20" uuid="254f8d16-bce4-4ff4-a79b-33f2ca2c4534"/>
+				<textFieldExpression><![CDATA[$F{tel_perso}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="46" width="555" height="1" uuid="c245f5fd-b89a-43f6-9100-49400cb952be"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="31" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="1" y="1" width="555" height="30" backcolor="#CCCCCC" uuid="59cf77d6-8528-47d2-a5b9-df800de83aa9"/>
+				<textField>
+					<reportElement x="435" y="10" width="80" height="20" uuid="88170c0e-72a7-4a6c-aa12-444a8f176f66"/>
+					<textElement textAlignment="Right"/>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField evaluationTime="Report">
+					<reportElement x="515" y="10" width="40" height="20" uuid="b37421ff-55d7-442d-a6f2-740729bb32b2"/>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<line>
+				<reportElement x="1" y="0" width="554" height="1" uuid="6fdddf07-5bd3-4ed2-87f8-18cefadf4e8b"/>
+			</line>
+		</band>
+	</columnFooter>
+</jasperReport>

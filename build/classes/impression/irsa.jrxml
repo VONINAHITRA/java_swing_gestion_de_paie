@@ -1,0 +1,740 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="02aae6d5-4d2a-4ec5-ad1c-669192c6a02f">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="ANNEE_IRSA" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="MOIS_IRSA" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select tba_irsa.impot_du as mocnaps_irsa, tba_irsa.num_perso as num,tba_irsa.nom_pre_irsa as nom,tba_irsa.sal_base,(select sum(tba_irsa.sal_base) from tba_irsa where tba_irsa.annee_irsa=$P{ANNEE_IRSA} and tba_irsa.mois_irsa=$P{MOIS_IRSA}) as somme_sal_base,tba_irsa.elements_salaire  as eleme,tba_irsa.salaire_brutes as brutes,(select sum(tba_irsa.salaire_brutes) from tba_irsa  where tba_irsa.annee_irsa=$P{ANNEE_IRSA} and tba_irsa.mois_irsa=$P{MOIS_IRSA}) as somme_brutes ,tba_irsa.cnaps as irsa ,tba_irsa.osief as osief ,(select sum(tba_irsa.osief) from tba_irsa  where tba_irsa.annee_irsa=$P{ANNEE_IRSA} and tba_irsa.mois_irsa=$P{MOIS_IRSA}) as somme_oseif,tba_irsa.cnaps as cnaps,(select sum(tba_irsa.cnaps) from tba_irsa  where tba_irsa.annee_irsa=$P{ANNEE_IRSA} and tba_irsa.mois_irsa=$P{MOIS_IRSA}) as somme_cnaps, tba_irsa.abatement_for as abate,(select sum(tba_irsa.base_imposable) from tba_irsa  where tba_irsa.annee_irsa=$P{ANNEE_IRSA} and tba_irsa.mois_irsa=$P{MOIS_IRSA}) as somme_bas_impose,tba_irsa.impot_coresspondant as impo_cores,tba_irsa.base_imposable as sa_impose ,(select sum(tba_irsa.impot_coresspondant)  from tba_irsa  where tba_irsa.annee_irsa=$P{ANNEE_IRSA} and tba_irsa.mois_irsa=$P{MOIS_IRSA} ) as somme_imot_cores,(select sum(tba_irsa.elements_salaire) from tba_irsa  where tba_irsa.annee_irsa=$P{ANNEE_IRSA} and tba_irsa.mois_irsa=$P{MOIS_IRSA} ) as somme_element,tba_irsa.enfant as enfant, tba_irsa.charge_familliale as famille,(select sum(tba_irsa.charge_familliale) from tba_irsa where tba_irsa.annee_irsa=$P{ANNEE_IRSA} and tba_irsa.mois_irsa=$P{MOIS_IRSA} ) as somme_famille,(select sum(tba_irsa.enfant) from tba_irsa  where tba_irsa.annee_irsa=$P{ANNEE_IRSA} and tba_irsa.mois_irsa=$P{MOIS_IRSA}) as somme_enfant,tba_irsa.mois_irsa as mois,tba_irsa.annee_irsa as annee,tba_irsa.autres_reduc as autres,(select sum(tba_irsa.autres_reduc)  from tba_irsa  where tba_irsa.annee_irsa=$P{ANNEE_IRSA} and tba_irsa.mois_irsa=$P{MOIS_IRSA}) as somme_autres
+,(select sum(tba_irsa.impot_du) from tba_irsa  where tba_irsa.annee_irsa=$P{ANNEE_IRSA} and tba_irsa.mois_irsa=$P{MOIS_IRSA} ) as somme_irsa from tba_irsa where tba_irsa.annee_irsa=$P{ANNEE_IRSA} and tba_irsa.mois_irsa=$P{MOIS_IRSA}]]>
+	</queryString>
+	<field name="mocnaps_irsa" class="java.lang.Float"/>
+	<field name="num" class="java.lang.String"/>
+	<field name="nom" class="java.lang.String"/>
+	<field name="sal_base" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="somme_sal_base" class="java.lang.Double"/>
+	<field name="eleme" class="java.lang.Float"/>
+	<field name="brutes" class="java.lang.Float"/>
+	<field name="somme_brutes" class="java.lang.Double"/>
+	<field name="irsa" class="java.lang.Float"/>
+	<field name="osief" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="somme_oseif" class="java.lang.Double"/>
+	<field name="cnaps" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="somme_cnaps" class="java.lang.Double"/>
+	<field name="abate" class="java.lang.Float"/>
+	<field name="somme_bas_impose" class="java.lang.Double"/>
+	<field name="impo_cores" class="java.lang.Integer"/>
+	<field name="sa_impose" class="java.lang.Double"/>
+	<field name="somme_imot_cores" class="java.math.BigDecimal"/>
+	<field name="somme_element" class="java.lang.Double"/>
+	<field name="enfant" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="famille" class="java.lang.Float"/>
+	<field name="somme_famille" class="java.lang.Double"/>
+	<field name="somme_enfant" class="java.math.BigDecimal"/>
+	<field name="mois" class="java.lang.String"/>
+	<field name="annee" class="java.lang.String"/>
+	<field name="autres" class="java.lang.Float"/>
+	<field name="somme_autres" class="java.lang.Double"/>
+	<field name="somme_irsa" class="java.lang.Double"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<columnHeader>
+		<band height="227" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="-10" width="316" height="20" uuid="1984c598-2f8d-496f-9979-c0e1f3e04a52"/>
+				<textElement>
+					<font size="8" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Anarana sy fanampin'anaranan'ny mpampiasa na vondrona mpandoa vola:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="2" width="300" height="20" uuid="6c190c75-ae6c-4e67-8573-811f036d1367"/>
+				<textElement>
+					<font size="8" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Nom et prénom ou raison sociale de l'employer ou l'organisme payeur:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="79" y="12" width="98" height="20" forecolor="#006699" uuid="0b1fe7c5-7f07-475b-9ed1-82d70119e15a"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[AUTO-TRACTOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-2" y="25" width="79" height="20" forecolor="#006699" uuid="6d7d1f75-110a-448d-a399-197c3758d871"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Adiresy mazava:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="35" width="79" height="20" forecolor="#006699" uuid="9a28e9ef-e4c1-4c05-a5f0-e6e4f2e8002a"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Adresse presice:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="76" y="25" width="197" height="20" forecolor="#006699" uuid="a0ede687-99f9-4732-a2e2-57fa414e07f7"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[BP1462 ZOROZOROANA FIANARANTSOA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="47" width="142" height="20" forecolor="#006699" uuid="7cf33d6d-0680-490d-9ca9-b5dca9d681d8"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Nomerao famatarana statika:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="126" y="48" width="84" height="20" forecolor="#006699" uuid="662ab1a7-2df8-4598-b49e-3af8c40fda33"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[4530221199000003	
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="57" width="165" height="20" forecolor="#006699" uuid="b45641cd-b98d-4a0a-be43-6a3bc5cb4791"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Numérod'Identification statistique
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="77" width="316" height="20" uuid="9fd620ac-71ea-4f13-863e-6b8f10dfae8e"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Fitambaran'ny karama sy ny toa azy naloa hatramin'ny fiandohan'ny taona			
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="88" width="316" height="25" uuid="e458db8b-d788-4fb5-a9a7-9e5af2212626"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Montant des traitements, salaires et assimilés payés en cours des périodes			
+antérieures depuis le début de l'année]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="99" width="312" height="27" uuid="e1806d34-d759-4f59-b7f3-d6affbd0c030"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Karama sy ny toa azy naloa voakasik'ity taratasy ity				
+Montant des traitements, salaires et assimilés payés au titre de la période considerée				
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="332" y="-8" width="161" height="20" uuid="5b942c0c-2272-46dc-8e95-8050914519f9"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[REPOBLIKAN' I MADAGASIKARA					]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="354" y="1" width="111" height="20" uuid="ac212c45-3097-47a4-958a-f4a92ba9cca4"/>
+				<text><![CDATA[....................................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="210" y="48" width="74" height="20" forecolor="#006699" uuid="cbef907f-b6f9-47e8-8a49-8de2b65d31f4"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[NIF :4000178815	
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="546" y="-7" width="231" height="30" uuid="0ca359ce-8f29-4096-959b-5021da58ae35"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Filazana alefa amin'ny adiresy manaraka izao :		
+Etat à envoyer à l'adresse suivante :		
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="317" y="13" width="191" height="20" uuid="fabadfaa-2a82-4509-96c6-52e9a10ddfc4"/>
+				<textElement>
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SAMPAN-DRAHARAHAN' NY HETRA MIVANTANA						
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="329" y="25" width="162" height="20" uuid="8fc95086-ffce-43da-9de6-3991b0529976"/>
+				<textElement>
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SERVICE DES CONTRIBUTIONS DIRECTES						
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="273" y="36" width="298" height="20" uuid="e1c2dab2-9c09-47d6-944d-37b5438becf1"/>
+				<textElement>
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FILAZANA NY KARAMA SY NY TOA AZY NALOA TAMIN'NY ISAM-BATAN'OLONA						
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="287" y="47" width="282" height="20" uuid="3fa72d90-d409-492c-bb31-e559873cf5ef"/>
+				<textElement>
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ETAT NOMINATIF DES TRAIEMENTS, SALAIRES ET ASSIMILES PAYES						
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="547" y="16" width="283" height="20" uuid="c2e8d47c-d6a1-4016-91c0-d749d3318543"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Faritra atokana ho an'ny Sampan-draharahan'ny Hetra Mivantana			
+]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="199" width="802" height="1" uuid="bb9258a5-8f9c-4065-9731-ddd21a8934cb"/>
+			</line>
+			<staticText>
+				<reportElement x="316" y="105" width="486" height="61" uuid="6b86b9ba-4ae5-44df-af90-2ecfdcd0518f"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Alefa mivantana any amin'ny biraon'ny Hetra mivantana mahefa ara-paritany ao anatin'ny folo andro nandrotsahana ny hetra momba ny karama 										
+sy ny toa azy ity taratasy filazana ityrehefa voafeno ary ampiarahana amin'ny kopian'ny taratasy fandrotsaham-bola momba azy 										
+(Andininy faha-01.03.19 amin'ny fehezan-dalàna ankapobeny mifehy ny hetra).					
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="316" y="159" width="486" height="34" uuid="b37e0d8c-74f1-421c-a3c6-018d7dabf44f"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Cet état, une fois rempli, doit être adressé directement au bureau des contributions directes territorialement compétent dans les dix jours de 										
+ la date de versement de l'impôt sur les revenus salariaux et assimilés, accompagnés d'une copie du bordereau de versement 										
+(Art. 01.03.19 du code général des impôts) 	]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="120" width="300" height="66" uuid="2193d1b7-3498-4a8d-96e1-59a317a3b7ee"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Karama sy ny toa azy naloa voakasik'ity taratasy ity				
+Montant des traitements, salaires et assimilés payés au titre de la période considerée				
+				
+Fitambaran'ny vola naloa				
+Situation cumulée				
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="546" y="28" width="284" height="81" uuid="1514c2b8-4646-4f1a-b722-5376d9ab4843"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Faritra atokana ho an'ny Sampan-draharahan'ny Hetra Mivantana			
+Cadre réservé au Service des Contributions directes			
+Laharana:.......................................		
+N° d'ordre: ....................................		
+			
+Vaninandro nandraisana ny filazana :			
+Etat reçu le			
+			
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="334" y="58" width="77" height="20" uuid="86a5d61c-87df-4925-b301-43a7ebf62373"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TAONA:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="334" y="71" width="77" height="20" uuid="5fc7307d-edc3-45cf-9c7c-c600a7986d93"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ANNEE:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="334" y="81" width="86" height="20" uuid="de4d1bc4-43e3-41a5-874b-6d329b0b0214"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TAMIN'NY VOLANA:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="332" y="91" width="79" height="20" uuid="984e1e23-822e-4001-8355-522edc621d84"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[AU TITRE DU MOIS:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="410" y="59" width="100" height="20" uuid="f1a9c5fb-3931-4173-9071-c0a3f57d532b"/>
+				<textFieldExpression><![CDATA[$F{annee}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="416" y="79" width="100" height="20" uuid="7f6ee429-c1f1-43b5-a48d-cce033a38922"/>
+				<textFieldExpression><![CDATA[$F{mois}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="57" y="203" width="59" height="20" uuid="3f890945-e275-458b-945e-d0c187ee760e"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Nom et prénom]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="179" y="200" width="50" height="20" uuid="a9166a06-9aff-4df0-a612-4ac508ea27a8"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Salaire ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="235" y="200" width="39" height="18" uuid="f20577ee-4cc9-4214-bc15-ce4a0f30265d"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Element ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="286" y="202" width="57" height="20" uuid="4a0e2d3c-6008-4bed-92e9-f38d15794442"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Salaire brutes]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="360" y="202" width="36" height="20" uuid="6257ec4b-0d5c-49ca-a1af-02fbb93c0e59"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[CNaPS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="408" y="202" width="34" height="20" uuid="72c1dca5-d446-4bc6-872f-ba0dd52c2e0f"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[OSIEF]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="450" y="201" width="46" height="20" uuid="f99e5f32-2565-4b3f-9c38-0ddbed7cff5e"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Abattement]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="547" y="201" width="64" height="20" uuid="cb7260e0-f65b-4d05-bdb0-4745c8bf5229"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Base imposable]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="626" y="199" width="46" height="20" uuid="a1b9df24-7009-46e8-bc5f-069085291ceb"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Impôt ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="665" y="199" width="37" height="20" uuid="a0097ace-99a3-4f8c-9e8e-2c43e428443a"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Enfant ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="744" y="201" width="58" height="20" uuid="eb784dcd-3aca-4613-844e-54e8115bab92"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Impot d'IRSA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="705" y="199" width="38" height="20" uuid="29ce8e81-d948-4467-90bc-68651d5b7bbc"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Charge ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="175" y="209" width="50" height="17" uuid="3f69af5c-3968-421f-adf4-f0f5f6784653"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[de base]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="455" y="210" width="41" height="12" uuid="90b075ae-cb50-498d-8f14-b7d7e598255f"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[ forfaitaire]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="235" y="209" width="39" height="18" uuid="eb254099-5df4-424c-b364-7ba95c95e3eb"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[du salaire]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="614" y="207" width="46" height="20" uuid="472c3141-3f53-488f-8dda-d9480598a918"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[correspondat]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="703" y="207" width="40" height="20" uuid="330aced2-3baa-4233-9256-3b57690b133f"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[familliale]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="502" y="199" width="53" height="12" uuid="15a47dd8-d802-45e5-b8c9-e32f1f905b5d"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Autres]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="499" y="207" width="53" height="20" uuid="225e1f9d-3eea-456b-97c2-721b66171af0"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[ déductions]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="661" y="207" width="34" height="20" uuid="8baa4a45-42f4-4717-bdb6-b82d5057e3be"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[à  charge]]></text>
+			</staticText>
+			<line>
+				<reportElement x="312" y="193" width="490" height="1" uuid="4fb3658f-cce0-4521-b156-ae90529c4504"/>
+			</line>
+			<line>
+				<reportElement x="313" y="104" width="490" height="1" uuid="8fc4ac50-2a64-4a5b-a9b3-8b8708ae791f"/>
+			</line>
+			<line>
+				<reportElement x="312" y="105" width="1" height="88" uuid="1bf1d49a-e72b-4a4d-a16c-183791047bd9"/>
+			</line>
+			<line>
+				<reportElement x="802" y="104" width="1" height="89" uuid="2b90df92-09d1-4ef4-8529-e1c4007dd6ae"/>
+			</line>
+			<line>
+				<reportElement x="0" y="71" width="304" height="1" uuid="2de619fe-8f6e-4cf8-aacf-af8204b6e956"/>
+			</line>
+			<line>
+				<reportElement x="304" y="71" width="1" height="115" uuid="173a5188-5ec8-4f16-a199-7d225a21d075"/>
+			</line>
+			<line>
+				<reportElement x="0" y="185" width="304" height="1" uuid="60b55093-296c-4907-ad59-d070cfd067c5"/>
+			</line>
+			<line>
+				<reportElement x="-1" y="71" width="1" height="114" uuid="cc656c0a-fd52-4652-a6d4-d1b124c166ff"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="39" splitType="Stretch">
+			<textField>
+				<reportElement x="166" y="10" width="60" height="20" uuid="e52530c6-2755-4e46-92ea-621e7501bfae"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sal_base}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="1" y="-2" width="801" height="1" uuid="b416cf46-1822-4c35-8f4f-cd041e160cda"/>
+			</line>
+			<textField>
+				<reportElement x="229" y="10" width="53" height="20" uuid="0a05d034-bef6-4573-b0e8-88406126903b"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{eleme}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="286" y="11" width="63" height="20" uuid="64bd057d-b44f-44dd-b25a-57deab7de58a"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{brutes}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="353" y="10" width="46" height="21" uuid="dacc192c-3397-4430-b146-4d393d2cf80e"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cnaps}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="404" y="11" width="44" height="20" uuid="54bfe4ef-6113-438f-899a-4c9600949143"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{osief}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="459" y="11" width="28" height="20" uuid="460d4329-81c5-43d0-9b31-1a5a529b8161"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{abate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="552" y="11" width="53" height="20" uuid="1c1ba0c3-be85-4095-a63a-5f534d5f6419"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sa_impose}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="609" y="11" width="49" height="20" uuid="36e34f9e-65f4-4fc2-9efc-88a954aed54e"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{impo_cores}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="667" y="10" width="22" height="20" uuid="56c9c808-31c8-4a09-8b73-07296f0aa878"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{enfant}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="697" y="10" width="42" height="20" uuid="3bcad23d-9d1c-49d9-87ce-eb669ad8e6f5"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{famille}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="162" y="-27" width="1" height="65" uuid="3085c75a-0d0e-4d73-8a69-25f54baccd66"/>
+			</line>
+			<line>
+				<reportElement x="225" y="-28" width="1" height="66" uuid="49a542fc-bc21-4fdc-bc24-6f3459241331"/>
+			</line>
+			<line>
+				<reportElement x="282" y="-28" width="1" height="66" uuid="97603539-1002-4e15-a861-3c3a4dcd8a5a"/>
+			</line>
+			<line>
+				<reportElement x="399" y="-28" width="1" height="66" uuid="e30f8784-13de-4f7b-b9b1-c0cbf5563d0f"/>
+			</line>
+			<line>
+				<reportElement x="802" y="-28" width="1" height="66" uuid="225bc8e5-c47d-477b-9781-f032d1e98928"/>
+			</line>
+			<textField>
+				<reportElement x="744" y="10" width="58" height="20" uuid="8989d560-5039-4191-b3f4-ab6a2458156c"/>
+				<textFieldExpression><![CDATA[$F{mocnaps_irsa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="3" y="8" width="159" height="20" uuid="9e23b8ad-2da1-4936-b011-7189455276c1"/>
+				<textElement>
+					<font size="7" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nom}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="499" y="11" width="47" height="20" uuid="5983a8e6-b5e5-4aec-b7ab-a96990960759"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{autres}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="447" y="-28" width="1" height="65" uuid="24a24d42-54c4-497e-9892-ca68d6bfd95a"/>
+			</line>
+			<line>
+				<reportElement x="492" y="-28" width="1" height="66" uuid="52c9af91-5481-40b8-ab54-52aea3d1eb0d"/>
+			</line>
+			<line>
+				<reportElement x="544" y="-27" width="1" height="65" uuid="5ed65166-b714-4cd0-97b2-39046bd2fd80"/>
+			</line>
+			<line>
+				<reportElement x="605" y="-27" width="1" height="65" uuid="4ff172aa-3ddc-40e1-b48a-be7b73fce7ad"/>
+			</line>
+			<line>
+				<reportElement x="348" y="-28" width="1" height="66" uuid="94017bf6-a3e6-405e-8b1e-b0daaac20432"/>
+			</line>
+			<line>
+				<reportElement x="692" y="-27" width="1" height="65" uuid="a1c6664d-d9b6-4e25-afc7-ea8b0e5809cf"/>
+			</line>
+			<line>
+				<reportElement x="738" y="-27" width="1" height="65" uuid="c99894e3-34ca-4c45-9b99-075c5e5c0718"/>
+			</line>
+			<line>
+				<reportElement x="0" y="-28" width="1" height="65" uuid="f9f887fa-b5c0-4d1d-86b8-68d99e875329"/>
+			</line>
+			<line>
+				<reportElement x="1" y="37" width="800" height="1" uuid="8652da66-95b9-41aa-b8c3-e171c12470f7"/>
+			</line>
+			<line>
+				<reportElement x="659" y="-27" width="1" height="64" uuid="614205f1-26fc-4b23-8fe9-76204b3c3245"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="68" splitType="Stretch">
+			<staticText>
+				<reportElement x="79" y="4" width="72" height="20" uuid="803bacac-490a-4992-bc0c-2ab16dedf186"/>
+				<text><![CDATA[TOTAL:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="743" y="5" width="60" height="20" uuid="5ad5fc1b-8df7-4db8-ad01-8325bdc516a2"/>
+				<textFieldExpression><![CDATA[$F{somme_irsa}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="1" y="25" width="801" height="1" uuid="8974c88b-90f5-4007-b613-b7ddad955c1e"/>
+			</line>
+			<line>
+				<reportElement x="692" y="6" width="1" height="18" uuid="7b5746ca-c779-45f7-8ad3-ccc0f6b08f8b"/>
+			</line>
+			<line>
+				<reportElement x="659" y="3" width="1" height="21" uuid="5a2f0036-d2b4-4e4b-ae66-b39d3e754015"/>
+			</line>
+			<line>
+				<reportElement x="605" y="5" width="1" height="20" uuid="2771d988-b7ba-4bfd-bcf6-d183f17fab26"/>
+			</line>
+			<line>
+				<reportElement x="447" y="6" width="1" height="18" uuid="0e9f3986-89e4-4a93-945f-5d796c4088aa"/>
+			</line>
+			<line>
+				<reportElement x="399" y="5" width="1" height="19" uuid="f4d8b5d8-87ee-437e-8406-fadca502f9e4"/>
+			</line>
+			<line>
+				<reportElement x="348" y="4" width="1" height="21" uuid="81349fa8-156d-4eb8-a5d0-4b2e2051ec89"/>
+			</line>
+			<line>
+				<reportElement x="282" y="4" width="1" height="21" uuid="5096f733-2c62-42bc-9876-3c0198337690"/>
+			</line>
+			<line>
+				<reportElement x="225" y="0" width="1" height="24" uuid="e7ea7590-0566-49b8-b783-a1aec4f4e111"/>
+			</line>
+			<line>
+				<reportElement x="162" y="0" width="1" height="25" uuid="9db4c59f-523c-40c4-a2b2-e54edea03c81"/>
+			</line>
+			<line>
+				<reportElement x="0" y="4" width="1" height="21" uuid="fe8188e3-6cd6-494b-b296-1c4e047b280d"/>
+			</line>
+			<line>
+				<reportElement x="801" y="3" width="1" height="21" uuid="5837c5bd-c3bf-4def-bd97-b14c217bfcfd"/>
+			</line>
+			<textField>
+				<reportElement x="167" y="4" width="59" height="20" uuid="f453d12a-4c69-473b-bc81-c13521f12220"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{somme_sal_base}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="287" y="4" width="61" height="20" uuid="dd0f515f-9c76-4488-8f0d-707bd05be806"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{somme_brutes}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="230" y="4" width="53" height="20" uuid="ae7c875b-bd20-46f7-a315-43e6b9e2a403"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{somme_element}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="609" y="5" width="49" height="20" uuid="24e124ea-768f-4334-b579-404b24947a23"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{somme_imot_cores}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="695" y="5" width="43" height="20" uuid="3468e31b-6cf5-4b86-b74f-84fc56e18f37"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{somme_famille}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="352" y="4" width="47" height="20" uuid="af80b3d4-d45e-4d41-af31-36509e455992"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{somme_cnaps}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="403" y="4" width="47" height="20" uuid="a37ee0e5-90d8-48c6-afe6-84bca8c345b3"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{somme_oseif}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="459" y="4" width="28" height="20" uuid="f41de302-469a-498d-8a9e-4b56d7c5fa65"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{abate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="547" y="5" width="58" height="20" uuid="c28543ae-71c9-4814-8850-35f5d56a0f93"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{somme_bas_impose}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="496" y="5" width="48" height="20" uuid="084574b3-9ac0-4527-9b61-e73b29edfd7c"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{somme_autres}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="666" y="6" width="29" height="20" uuid="e2b3ba2e-df37-42b1-b0f7-48d4aa6d90e5"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{somme_enfant}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="2" y="3" width="801" height="1" uuid="6d5ceaa2-acfa-4873-9bb6-c964dc7a4523"/>
+			</line>
+			<line>
+				<reportElement x="491" y="3" width="2" height="21" uuid="d35f9e94-281d-4de0-860e-ba441db350bc"/>
+			</line>
+			<line>
+				<reportElement x="739" y="3" width="1" height="21" uuid="9a084e23-1e08-4302-82c7-72732b41c2cf"/>
+			</line>
+		</band>
+	</columnFooter>
+</jasperReport>

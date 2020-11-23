@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e88e9578-da03-4292-8a5b-4a2d30a69f19">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="MOIS_OSIEF1" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="MOIS_OSIEF2" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="ANNEE_OSIEF" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select tab_paie.num_perso as num, tab_paie.nom_pre_bulletin as nom, tab_paie.sal_base as sal_base,tab_paie.simple_av as av,tab_paie.totale_av_bulletin as total_av, tab_paie.annee_bulletin as annee,tab_paie.mois_bulletin as mois, (select sum(tab_paie.totale_av_bulletin) from tab_paie  where annee_bulletin=$P{ANNEE_OSIEF} and tab_paie.mois_bulletin between $P{MOIS_OSIEF1} and $P{MOIS_OSIEF2} order by tab_paie.mois_bulletin) as total,(select (sum(tab_paie.totale_av_bulletin)*2/100) from tab_paie where annee_bulletin=$P{ANNEE_OSIEF} and tab_paie.mois_bulletin between $P{MOIS_OSIEF1} and $P{MOIS_OSIEF2} order by tab_paie.mois_bulletin) as pourcent from tab_paie where annee_bulletin=$P{ANNEE_OSIEF} and tab_paie.mois_bulletin between $P{MOIS_OSIEF1} and $P{MOIS_OSIEF2} order by tab_paie.mois_bulletin]]>
+	</queryString>
+	<field name="num" class="java.lang.String"/>
+	<field name="nom" class="java.lang.String"/>
+	<field name="sal_base" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="av" class="java.lang.String"/>
+	<field name="total_av" class="java.lang.String"/>
+	<field name="annee" class="java.lang.String"/>
+	<field name="mois" class="java.lang.String"/>
+	<field name="total" class="java.lang.Double"/>
+	<field name="pourcent" class="java.lang.Double"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<columnHeader>
+		<band height="139" splitType="Stretch">
+			<staticText>
+				<reportElement x="55" y="17" width="97" height="20" forecolor="#0066FF" uuid="a67c6708-7243-436c-b862-8cf9149e3bbf"/>
+				<textElement>
+					<font size="11" isBold="true" isItalic="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[AUTO-TRACTOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="565" y="17" width="100" height="20" uuid="e47b3a92-7280-4237-9c3d-174a10e9a85c"/>
+				<text><![CDATA[TOTAL SALAIRE:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="7" y="31" width="219" height="21" forecolor="#0066FF" uuid="ff603f1e-7f70-48d5-8427-a3717d9b5479"/>
+				<textElement>
+					<font size="9" isItalic="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[ BP:1462 ZOROZOROANA-FIANARANTSOA 301                 ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="7" y="44" width="163" height="20" forecolor="#0066FF" uuid="38c943eb-9e32-42a1-865e-551ea8b3f93f"/>
+				<textElement>
+					<font size="9" isItalic="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Tél:020 75 509 01 - 034 75 509 01]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="565" y="37" width="100" height="20" uuid="626e5f2c-edea-4c2a-9882-7e2c9dd8ea79"/>
+				<text><![CDATA[COTISATION 1% :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="566" y="58" width="99" height="20" uuid="27951c46-16a9-4849-83e3-c0e99bb12e6f"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[NET A PAYER :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="218" y="56" width="335" height="22" uuid="e5c28a4e-5afc-4a5e-93c6-655150852c30"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CAISSE NATIONALE DE PREVOYANCE SOCIALE (CNaPS)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="255" y="31" width="275" height="22" uuid="70aa485f-8b29-453c-b9a8-8072c8eb65b8"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DECLARATION NOMINATIVE DES SALAIRES]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="580" y="116" width="77" height="20" uuid="5bf55a52-95ba-4d28-8cd1-5d40ca741769"/>
+				<text><![CDATA[Avanatages]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="480" y="116" width="80" height="20" uuid="8fda2ed3-b491-4650-a928-7ae0909d642f"/>
+				<text><![CDATA[Salaire de base]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="62" y="116" width="45" height="20" uuid="04518047-bfee-4276-8c80-fb037358863b"/>
+				<text><![CDATA[Année]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="123" y="116" width="61" height="20" uuid="99d476d1-3a5f-433e-a0e3-de83bac79b80"/>
+				<text><![CDATA[Matricule]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="668" y="116" width="134" height="20" uuid="5dbf9b68-8f78-43ee-b0fc-7dd89042506a"/>
+				<text><![CDATA[Total du salaire personnel]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="8" y="116" width="45" height="20" uuid="2a3b6055-de70-4af6-aca0-536f7972686b"/>
+				<text><![CDATA[Mois]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="256" y="116" width="94" height="20" uuid="7144c849-f3fa-4b3a-91ab-aa3ed48bbd0e"/>
+				<text><![CDATA[Nom et prénom]]></text>
+			</staticText>
+			<line>
+				<reportElement x="1" y="137" width="801" height="1" uuid="6c493dfe-3806-4906-b903-0577729a8b69"/>
+			</line>
+			<line>
+				<reportElement x="0" y="115" width="801" height="1" uuid="94510c91-e9fe-486b-9726-d1ad87d7b2f7"/>
+			</line>
+			<line>
+				<reportElement x="1" y="79" width="801" height="1" uuid="c2b4bbc6-1c2f-4e9e-acbf-627b66818550"/>
+			</line>
+			<textField>
+				<reportElement x="669" y="17" width="100" height="20" uuid="8735ff26-0c44-4c81-8867-3a4646a418c1"/>
+				<textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="769" y="17" width="23" height="20" uuid="01e46e50-72a7-418b-bf84-303fe08646d2"/>
+				<text><![CDATA[AR]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="669" y="37" width="100" height="20" uuid="30d86ad7-ebc5-49cc-bf73-fca1fa8aac39"/>
+				<textFieldExpression><![CDATA[$F{pourcent}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="670" y="56" width="100" height="20" uuid="703ea3c8-be0f-48ab-b3c6-b5c12337a491"/>
+				<textFieldExpression><![CDATA[$F{pourcent}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="770" y="37" width="23" height="20" uuid="3d8d1698-dc2a-4018-bd80-1f0109172e2e"/>
+				<text><![CDATA[AR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="769" y="57" width="23" height="20" uuid="e96693b7-18e5-4ea0-8b9d-e22ff88fa455"/>
+				<text><![CDATA[AR]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="34" splitType="Stretch">
+			<textField>
+				<reportElement x="8" y="12" width="45" height="20" uuid="bab601cc-f8bf-413b-9a0d-5fa973ee2a85"/>
+				<textFieldExpression><![CDATA[$F{mois}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="62" y="12" width="45" height="20" uuid="152d24cb-8675-402c-9ca1-0e86714a99b8"/>
+				<textFieldExpression><![CDATA[$F{annee}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="123" y="12" width="61" height="20" uuid="f9c08938-5deb-41fd-af1a-265c2343fae2"/>
+				<textFieldExpression><![CDATA[$F{num}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="205" y="12" width="265" height="20" uuid="48ee83c8-1800-4031-8c48-90652fd0de37"/>
+				<textFieldExpression><![CDATA[$F{nom}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="480" y="12" width="80" height="20" uuid="863a2ab1-f8e9-4146-82f7-b32532fb88db"/>
+				<textFieldExpression><![CDATA[$F{sal_base}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="580" y="12" width="77" height="20" uuid="cdad433f-b43b-4c77-8d3d-eb2348cb177a"/>
+				<textFieldExpression><![CDATA[$F{av}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="675" y="12" width="126" height="20" uuid="6d1d25f6-e97f-49b4-b77b-f6149684251e"/>
+				<textFieldExpression><![CDATA[$F{total_av}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="33" width="802" height="1" uuid="8fa15c22-000d-463b-857a-258256c1a7eb"/>
+			</line>
+			<line>
+				<reportElement x="191" y="-23" width="1" height="56" uuid="3fd6cad3-4ce4-480b-a9b2-bc299c3a1146"/>
+			</line>
+			<line>
+				<reportElement x="55" y="-24" width="1" height="58" uuid="7b615dc4-73c4-495c-bef7-76fe558f22e4"/>
+			</line>
+			<line>
+				<reportElement x="472" y="-23" width="1" height="57" uuid="ff4caa66-adb0-4962-84c9-2bd6d343a0a8"/>
+			</line>
+			<line>
+				<reportElement x="561" y="-23" width="1" height="55" uuid="e1c48ff5-9850-46bf-b3d4-e1f475e66ae2"/>
+			</line>
+			<line>
+				<reportElement x="660" y="-23" width="1" height="55" uuid="09acfdac-448c-4473-8ae2-d3861963d3fa"/>
+			</line>
+			<line>
+				<reportElement x="108" y="-23" width="1" height="55" uuid="ef18b2e1-13ab-4b93-89fa-91f470d1b636"/>
+			</line>
+			<line>
+				<reportElement x="801" y="-24" width="1" height="57" uuid="71bc399d-54f2-48a9-8665-70ad33db3128"/>
+			</line>
+			<line>
+				<reportElement x="-1" y="-23" width="1" height="57" uuid="45c8646c-5fd6-4405-b876-ce5f53a38cc7"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="29" splitType="Stretch">
+			<textField>
+				<reportElement x="684" y="9" width="80" height="20" uuid="fd857c3c-702f-4d20-927d-3e7dcf943dc1"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="764" y="9" width="40" height="20" uuid="38932857-3e3e-4a43-8335-5bae55247566"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="802" y="-58" width="1" height="58" uuid="e5fd463d-3b5b-4357-b40e-22a46b0a7d84"/>
+			</line>
+		</band>
+	</columnFooter>
+</jasperReport>

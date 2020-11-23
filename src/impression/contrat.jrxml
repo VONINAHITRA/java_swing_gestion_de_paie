@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="53c46180-b491-4a9c-b63f-371238139e19">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[select * from tab_contrat order by num_perso]]>
+	</queryString>
+	<field name="id_contrat" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="num_perso" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nom_pre_contrat" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="dt_now_contrat" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="dt_entre_contrat" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="dt_sortie_contrat" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="clasifi_contrat" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nbhrs_mois_contrat" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nbhrs_jrs_contrat" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="indice_contrat" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="sal_base_contrat" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="lieu_trav_contrat" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="type_paie_contrat" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="type_contrat" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<columnHeader>
+		<band height="94" splitType="Stretch">
+			<staticText>
+				<reportElement x="300" y="20" width="255" height="31" uuid="e2a39e95-21bc-458f-a47f-7bcb8bcdc52a"/>
+				<textElement>
+					<font size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[LISTE DES CONTRATS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="344" y="0" width="69" height="20" uuid="84f2ef66-4de0-44e0-9ae7-706ed0ad9005"/>
+				<text><![CDATA[Aujourd'hui le:]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="413" y="0" width="100" height="20" uuid="12a03362-1b09-445a-88fd-48e2cbacc2d4"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="56" y="10" width="124" height="20" forecolor="#999999" uuid="1988bf78-5304-490c-9a20-e80477cc992f"/>
+				<textElement>
+					<font size="14" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[AUTO-TRACTOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="14" y="30" width="219" height="21" forecolor="#999999" uuid="7244e064-41ef-4192-8254-078e399a4f3a"/>
+				<textElement>
+					<font size="9" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[ BP:1462 ZOROZOROANA-FIANARANTSOA 301                 ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="14" y="51" width="219" height="20" forecolor="#999999" uuid="0c88383b-20bd-4918-acc8-59d255cd2b0c"/>
+				<textElement>
+					<font size="9" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Tél:020 75 509 01 - 034 75 509 01]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="81" width="555" height="1" uuid="4f18dc36-5c4c-4972-a6ce-5eb01f0ecf5a"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="144" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="555" height="31" backcolor="#CCCCCC" uuid="80c6cb49-bc06-4878-b699-788229c2a0b4"/>
+			</frame>
+			<textField>
+				<reportElement x="0" y="0" width="68" height="31" uuid="d2c4ca74-fdeb-4bea-aa8c-1d74b7bdcdbd"/>
+				<textFieldExpression><![CDATA[$F{num_perso}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="68" y="0" width="485" height="31" uuid="b958d836-164b-42a2-b2f3-6f30abd19ed5"/>
+				<textFieldExpression><![CDATA[$F{nom_pre_contrat}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="31" width="68" height="20" uuid="91b60c99-05c3-456c-80d6-e9fbf5669ecd"/>
+				<textFieldExpression><![CDATA[$F{dt_now_contrat}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="68" y="31" width="67" height="20" uuid="2380a28c-a857-4bc9-995a-94ea4f2f7dce"/>
+				<textFieldExpression><![CDATA[$F{dt_entre_contrat}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="135" y="31" width="58" height="20" uuid="3e93f966-cdea-439d-aa98-49c5c7567701"/>
+				<textFieldExpression><![CDATA[$F{dt_sortie_contrat}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="193" y="31" width="63" height="20" uuid="30eaae5a-36c2-4143-b7e5-30b5b2d21ae0"/>
+				<textFieldExpression><![CDATA[$F{clasifi_contrat}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="256" y="31" width="44" height="20" uuid="56aba14f-93a2-43c0-b748-3b29014f421e"/>
+				<textFieldExpression><![CDATA[$F{nbhrs_mois_contrat}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="300" y="31" width="49" height="20" uuid="2e898fcb-1c64-4c50-a7a9-773c0c7d1c41"/>
+				<textFieldExpression><![CDATA[$F{nbhrs_jrs_contrat}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="349" y="31" width="64" height="20" uuid="d5e0d650-41b1-46de-b84c-99fc054d8de5"/>
+				<textFieldExpression><![CDATA[$F{indice_contrat}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="413" y="31" width="136" height="20" uuid="eed8efb1-598b-440b-a5ff-bbdf36bf89c4"/>
+				<textFieldExpression><![CDATA[$F{sal_base_contrat}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="81" width="233" height="20" uuid="5d8f632d-26f8-4837-b792-680f59996e39"/>
+				<textFieldExpression><![CDATA[$F{lieu_trav_contrat}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="233" y="81" width="100" height="20" uuid="5e07a4dd-a5ca-416b-8b82-67fba1db37f5"/>
+				<textFieldExpression><![CDATA[$F{type_paie_contrat}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="333" y="81" width="100" height="20" uuid="f830b2a5-74fe-4784-a241-2ebba62c4efc"/>
+				<textFieldExpression><![CDATA[$F{type_contrat}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="13" width="555" height="32" backcolor="#999999" uuid="71614507-d345-44df-b495-afea497a2f0f"/>
+				<textField evaluationTime="Report">
+					<reportElement x="513" y="12" width="40" height="20" uuid="ce2abe00-0341-49df-ac0f-c3d733835879"/>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="433" y="12" width="80" height="20" uuid="7c3b1b7f-a8a4-497e-b6d9-25e6f6eec31a"/>
+					<textElement textAlignment="Right"/>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</columnFooter>
+</jasperReport>

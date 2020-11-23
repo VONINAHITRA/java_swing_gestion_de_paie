@@ -1,0 +1,509 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" columnCount="2" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="401" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ae5a8615-4e36-4064-8f61-d739db959cef">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="21"/>
+	<parameter name="AVANCE_NUMERO" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="DATE_AVANCE" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select tab_contrat.num_perso,tab_contrat.clasifi_contrat,tab_contrat.indice_contrat,tab_contrat.sal_base_contrat,
+tab_avance.nom_pre_avance,tab_avance.dt_now_avance,tab_avance.periode_du_avance,tab_avance.periode_au_avance,tab_avance.total_avance,
+tab_avance.reste_salaire,tab_avance.enlettre from tab_contrat inner join tab_avance on tab_contrat.num_perso = tab_avance.num_perso where tab_avance.num_perso=$P{AVANCE_NUMERO} and tab_avance.dt_now_avance=$P{DATE_AVANCE}]]>
+	</queryString>
+	<field name="num_perso" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="clasifi_contrat" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="indice_contrat" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="sal_base_contrat" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nom_pre_avance" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="dt_now_avance" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="periode_du_avance" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="periode_au_avance" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="total_avance" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="reste_salaire" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="enlettre" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<columnHeader>
+		<band height="62" splitType="Stretch">
+			<staticText>
+				<reportElement x="231" y="10" width="28" height="20" uuid="dbaa1552-06a9-4cde-8403-f360e9cc0972"/>
+				<text><![CDATA[Date:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="36" width="219" height="20" forecolor="#0066FF" uuid="f12f11ac-2eb8-40ed-913b-62bebecad338"/>
+				<textElement>
+					<font size="9" isItalic="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Tél:020 75 509 01 - 034 75 509 01]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="216" y="33" width="176" height="20" uuid="01fa860d-9bdd-42ff-9660-91b43438c281"/>
+				<textElement>
+					<font size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[AVANCE SUR SALAIRE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="23" width="219" height="21" forecolor="#0066FF" uuid="51a23eb7-8a94-45e9-83e6-05b0c448bfc3"/>
+				<textElement>
+					<font size="9" isItalic="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[ BP:1462 ZOROZOROANA-FIANARANTSOA 301                 ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="50" y="9" width="97" height="20" forecolor="#0066FF" uuid="7aaea9a4-6783-4af3-9497-be930a0ae871"/>
+				<textElement>
+					<font size="11" isBold="true" isItalic="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[AUTO-TRACTOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="633" y="10" width="28" height="20" uuid="80244169-79e6-467b-be2d-edeeb4ddf81a"/>
+				<text><![CDATA[Date:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="404" y="36" width="219" height="20" forecolor="#0066FF" uuid="1a1ab9cd-f4da-40d7-b5d1-b616f2bf50ea"/>
+				<textElement>
+					<font size="9" isItalic="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Tél:020 75 509 01 - 034 75 509 01]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="627" y="33" width="173" height="20" uuid="411356eb-bdcf-4159-838d-5a46ea62806c"/>
+				<textElement>
+					<font size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[AVANCE SUR SALAIRE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="404" y="23" width="219" height="21" forecolor="#0066FF" uuid="9cde1d2a-76cf-484c-b8fd-cec943025556"/>
+				<textElement>
+					<font size="9" isItalic="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[ BP:1462 ZOROZOROANA-FIANARANTSOA 301                 ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="452" y="9" width="97" height="20" forecolor="#0066FF" uuid="19e5c9bd-8118-472a-91a5-38124033055e"/>
+				<textElement>
+					<font size="11" isBold="true" isItalic="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[AUTO-TRACTOR]]></text>
+			</staticText>
+			<line>
+				<reportElement x="395" y="0" width="1" height="62" uuid="e47563f8-e383-4b1d-bb3a-9c53451c99e0"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="257" y="10" width="141" height="20" uuid="f943ab39-875b-4869-8167-1f324169f42a"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="659" y="10" width="141" height="20" uuid="596508d4-1c25-454b-8b1a-851cfc3bb131"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="338" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="10" width="150" height="20" uuid="b7267819-b491-4651-9458-12046a1c9f62"/>
+				<text><![CDATA[Nom et prénom du travailleur:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="30" width="55" height="20" uuid="6faa438a-3d4f-4122-88b7-db1e5f985773"/>
+				<text><![CDATA[Matricule :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="151" y="30" width="132" height="20" uuid="541cf516-6813-40f7-98a1-235ff61d277f"/>
+				<text><![CDATA[Classification personnelle:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="50" width="55" height="20" uuid="51ea90d5-2e65-46d6-813c-f03fe192fb07"/>
+				<text><![CDATA[Payer du:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="119" y="50" width="62" height="20" uuid="69296585-cf58-4a82-8283-ed844688889a"/>
+				<text><![CDATA[Période du:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="247" y="50" width="22" height="20" uuid="924ecbcd-c8a3-424f-a531-e43c79a99a9b"/>
+				<text><![CDATA[au:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="69" width="389" height="1" uuid="b68ccefb-a183-47a4-a53a-1def5daeb818"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="69" width="83" height="21" uuid="37b1c8ca-70c1-461f-8a63-ab19fad77ba8"/>
+				<text><![CDATA[Salaire de base:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="162" y="69" width="33" height="20" uuid="ee96ccac-6c58-455e-b919-4c0f4bf51579"/>
+				<text><![CDATA[Indice:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="138" y="69" width="24" height="20" uuid="f688fe10-7e7b-482c-9576-998ae6513b94"/>
+				<text><![CDATA[AR]]></text>
+			</staticText>
+			<line>
+				<reportElement x="229" y="69" width="1" height="269" uuid="de79bc5e-b331-4fdf-8102-8a643c212989"/>
+			</line>
+			<line>
+				<reportElement x="0" y="231" width="389" height="1" uuid="bf33d7e5-1d45-4960-945c-ac4e77248102"/>
+			</line>
+			<line>
+				<reportElement x="307" y="69" width="1" height="269" uuid="1422da22-da1c-451c-9408-e7025245dcef"/>
+			</line>
+			<line>
+				<reportElement x="230" y="89" width="158" height="1" uuid="be62d1a5-72d5-44a6-b92c-9b1a66e41aa8"/>
+			</line>
+			<staticText>
+				<reportElement x="266" y="70" width="27" height="20" uuid="87ba0bd8-47c0-4460-bf82-ba453e93504f"/>
+				<text><![CDATA[AR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="348" y="70" width="27" height="20" uuid="9dce6995-1fbd-49ee-9c69-eb60d277e7c0"/>
+				<text><![CDATA[AR]]></text>
+			</staticText>
+			<line>
+				<reportElement x="388" y="69" width="1" height="269" uuid="fcbd447c-b384-4333-8966-f510dc1ce5cd"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="127" width="228" height="20" uuid="f5f2638d-6d1f-43c6-a776-ddba0845b418"/>
+				<text><![CDATA[Salaire journalières ou heures à...............................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="176" width="228" height="20" uuid="031fa60a-8450-456a-ae1d-84c236309201"/>
+				<text><![CDATA[Somme à retirer.......................................................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="238" width="229" height="20" uuid="e02d3583-5083-4806-b3e9-e2ec81b20751"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[TOTAL DE LA SOMME A TRETIRER:.............................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="407" y="10" width="150" height="20" uuid="d1230ee7-ab9b-4f52-80ab-84eb2635de7f"/>
+				<text><![CDATA[Nom et prénom du travailleur:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="407" y="30" width="55" height="20" uuid="bd5b5058-ba08-45cd-980c-a2fe062a1c42"/>
+				<text><![CDATA[Matricule :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="558" y="30" width="132" height="20" uuid="9ab30eaa-386e-4230-a20a-56fb7d4ede1b"/>
+				<text><![CDATA[Classification personnelle:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="529" y="50" width="62" height="20" uuid="2c12de41-6b57-4518-8b1b-80e2fb6dac0f"/>
+				<text><![CDATA[Période du:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="407" y="50" width="58" height="20" uuid="b7680651-17ea-4f37-a941-25e8e083d2df"/>
+				<text><![CDATA[Payer du:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="654" y="49" width="22" height="21" uuid="39d74b96-1792-40a2-bdb5-0c2ab0b305e9"/>
+				<text><![CDATA[au:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="407" y="69" width="392" height="1" uuid="ac055fc5-7923-415f-a71a-67a6316b36e9"/>
+			</line>
+			<line>
+				<reportElement x="395" y="0" width="1" height="338" uuid="c65e2265-1841-4846-95fd-fa3fcf60a56e"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="407" y="69" width="80" height="21" uuid="c97653d5-a1ce-4e81-b72f-12a9ce8f96a7"/>
+				<text><![CDATA[Salaire de base:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="566" y="69" width="33" height="20" uuid="16f7e406-c6de-4a89-b1c8-45eff8264d05"/>
+				<text><![CDATA[Indice:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="542" y="69" width="24" height="20" uuid="5da1761c-9575-4cde-a4b2-ae6b2879c890"/>
+				<text><![CDATA[AR]]></text>
+			</staticText>
+			<line>
+				<reportElement x="647" y="69" width="2" height="269" uuid="e6ac38b4-012b-43df-8659-917d0002a305"/>
+			</line>
+			<line>
+				<reportElement x="721" y="70" width="1" height="268" uuid="e95f2a9b-26d3-4f04-ab0b-62eb03bd3f78"/>
+			</line>
+			<line>
+				<reportElement x="799" y="69" width="1" height="269" uuid="7522fd3e-c243-436c-b551-35064cfbf013"/>
+			</line>
+			<line>
+				<reportElement x="401" y="230" width="399" height="1" uuid="a0f14663-213b-4a52-8d23-771271c6a0a2"/>
+			</line>
+			<line>
+				<reportElement x="647" y="90" width="152" height="1" uuid="60732bab-d3db-42e3-adf8-aa61b685615c"/>
+			</line>
+			<staticText>
+				<reportElement x="675" y="70" width="27" height="20" uuid="2fede927-d280-43c0-8b51-1032dddc1097"/>
+				<text><![CDATA[AR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="756" y="72" width="27" height="20" uuid="85cde21a-9c3b-498c-9beb-b690a6b3a053"/>
+				<text><![CDATA[AR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="404" y="132" width="243" height="20" uuid="d1c06a8e-c805-450c-abde-e46778186a35"/>
+				<text><![CDATA[Salaire journalières ou heures à....................................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="404" y="178" width="245" height="20" uuid="b18e2a4d-80b0-42b6-9ad5-1db8b1815023"/>
+				<text><![CDATA[Somme à retirer:............................................................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="404" y="238" width="243" height="20" uuid="168f8e55-345d-415b-971e-6b17cbe9bad5"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[TOTAL DE LA SOMME A TRETIRER:...................................]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="690" y="29" width="109" height="20" uuid="4d9ccfe4-00cf-46b5-97d0-0e98a1426ad8"/>
+				<textFieldExpression><![CDATA[$F{clasifi_contrat}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="283" y="29" width="106" height="20" uuid="5249a694-1207-4f05-b5a6-faf71b1f73f4"/>
+				<textFieldExpression><![CDATA[$F{clasifi_contrat}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="591" y="50" width="63" height="20" uuid="7a27e1a4-6ff6-4fd5-98a6-2adb67692333"/>
+				<textFieldExpression><![CDATA[$F{periode_du_avance}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="181" y="49" width="66" height="20" uuid="087a20ad-5f21-4e5b-8cfb-113fc3319312"/>
+				<textFieldExpression><![CDATA[$F{periode_du_avance}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="269" y="49" width="100" height="20" uuid="eb7d3d2a-ca99-46ef-8e39-535d40781a80"/>
+				<textFieldExpression><![CDATA[$F{periode_au_avance}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="676" y="49" width="100" height="20" uuid="7b354a0c-8ed4-4ca0-ac54-cf5499930a0b"/>
+				<textFieldExpression><![CDATA[$F{periode_au_avance}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="55" y="29" width="96" height="20" uuid="99f0df32-9f19-4241-882d-df309d10475c"/>
+				<textFieldExpression><![CDATA[$F{num_perso}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="462" y="29" width="95" height="20" uuid="3c8cdb8f-f490-41cd-9118-f4d5692218cf"/>
+				<textFieldExpression><![CDATA[$F{num_perso}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="195" y="69" width="33" height="20" uuid="9c2315e8-3a5e-473b-9a20-e84f722fe393"/>
+				<textFieldExpression><![CDATA[$F{indice_contrat}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="599" y="69" width="48" height="20" uuid="351e30c2-5263-4871-88b9-7a111f20ccde"/>
+				<textFieldExpression><![CDATA[$F{indice_contrat}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="83" y="69" width="55" height="20" uuid="ffce72c7-06af-48f8-9c47-0d007189500a"/>
+				<textFieldExpression><![CDATA[$F{sal_base_contrat}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="487" y="69" width="55" height="20" uuid="17ba1e25-c3ce-4ca6-a508-ba27bcb096cf"/>
+				<textFieldExpression><![CDATA[$F{sal_base_contrat}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="238" y="127" width="70" height="20" uuid="32383929-22fb-4559-8134-2bba72d34bd6"/>
+				<textFieldExpression><![CDATA[$F{sal_base_contrat}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="656" y="132" width="65" height="20" uuid="150add6e-54c9-40c9-b170-5edd40170e26"/>
+				<textFieldExpression><![CDATA[$F{sal_base_contrat}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="151" y="9" width="237" height="20" uuid="1ad5ba79-e740-4e13-a5f4-03f662602c59"/>
+				<textFieldExpression><![CDATA[$F{nom_pre_avance}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="558" y="10" width="237" height="20" uuid="6942dd36-6726-4e35-9213-9956bece2d73"/>
+				<textFieldExpression><![CDATA[$F{nom_pre_avance}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="55" y="49" width="64" height="20" uuid="b40be89a-7512-4b2e-9e45-6204e800866f"/>
+				<textFieldExpression><![CDATA[$F{dt_now_avance}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="465" y="49" width="64" height="20" uuid="4e908190-a477-49a6-90d6-bca16245a4b0"/>
+				<textFieldExpression><![CDATA[$F{dt_now_avance}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="654" y="178" width="68" height="20" uuid="41f61393-3872-4671-8857-499bd9eca386"/>
+				<textFieldExpression><![CDATA[$F{total_avance}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="238" y="176" width="70" height="20" uuid="7761272e-cdce-49c7-8b4e-2563af605562"/>
+				<textFieldExpression><![CDATA[$F{total_avance}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="312" y="238" width="76" height="20" uuid="e3b2b11b-c810-41ae-83fc-fb2830f1a8a1"/>
+				<textFieldExpression><![CDATA[$F{total_avance}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="729" y="231" width="70" height="20" uuid="099a4ead-a543-4cce-aaf9-83b32779ccfb"/>
+				<textFieldExpression><![CDATA[$F{total_avance}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="301" width="227" height="20" uuid="61d0a9b0-0bb0-49a7-b808-8ec514635c7f"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[RESTE DU SALAIRE:.......................................................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="403" y="301" width="244" height="20" uuid="af82bb00-13e0-4c5b-9c68-5561e7f5dd3d"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[RESTE DU SALAIRE:.............................................................]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="312" y="301" width="74" height="20" uuid="42fb8a28-1544-41a8-816a-6295a6f13d3e"/>
+				<textFieldExpression><![CDATA[$F{reste_salaire}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="731" y="318" width="69" height="20" uuid="15105b17-6a8b-4d6d-aeec-bbe5fa79af7b"/>
+				<textFieldExpression><![CDATA[$F{reste_salaire}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="155" splitType="Stretch">
+			<line>
+				<reportElement x="402" y="0" width="398" height="1" uuid="a39ed8cb-06d7-419c-b967-89bfb27c08ec"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="33" width="119" height="20" uuid="d87c0973-ab0a-4b70-ad9e-3e0b273a2a15"/>
+				<textElement>
+					<font isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Arrêté à la somme de:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="402" y="33" width="119" height="20" uuid="5e7f9cc9-48c4-4a27-9ce0-0a5031c128d3"/>
+				<textElement>
+					<font isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Arrêté à la somme de:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="4" y="58" width="385" height="20" uuid="82f9ddd8-409e-42d9-bc1f-c6469b6e22cc"/>
+				<textFieldExpression><![CDATA[$F{enlettre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="406" y="58" width="389" height="20" uuid="2bffe26f-0fe5-42be-b106-bb0b9273e6eb"/>
+				<textFieldExpression><![CDATA[$F{enlettre}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="11" y="91" width="119" height="20" uuid="547165c6-fc76-4768-aa9f-1b8685e92704"/>
+				<textElement>
+					<font isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Signature du personnel]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="257" y="93" width="141" height="20" uuid="5cac4441-a541-484d-ad80-665f25037c93"/>
+				<textElement>
+					<font isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Signature du Résponsable]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="410" y="93" width="119" height="20" uuid="9f3009fc-5ffe-4cba-9407-8fa8a59fad64"/>
+				<textElement>
+					<font isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Signature du personnel]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="654" y="93" width="141" height="20" uuid="4226c649-cbe8-4f2c-bf2b-ec7a352a94af"/>
+				<textElement>
+					<font isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Signature du Résponsable]]></text>
+			</staticText>
+			<line>
+				<reportElement x="395" y="0" width="1" height="155" uuid="4a69601e-a5aa-4997-9b70-4bf8d82b7135"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="0" y="0" width="388" height="1" uuid="f1e4c3f3-6056-4c0c-aff7-8ce25127c21b"/>
+			</line>
+			<staticText>
+				<reportElement x="160" y="5" width="133" height="20" uuid="a31a712d-8318-4de2-909c-8f88b4b70f35"/>
+				<text><![CDATA[MONTANT DE LA PAIE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="571" y="8" width="133" height="20" uuid="ea24afb0-9fd4-429d-ac31-eb6c50af728a"/>
+				<text><![CDATA[MONTANT DE LA PAIE]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="312" y="5" width="76" height="20" uuid="7f689b4e-4bb6-440b-92d5-d625ce126632"/>
+				<textFieldExpression><![CDATA[$F{total_avance}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="729" y="6" width="70" height="20" uuid="6f7ca00b-c07f-48e5-bf6f-7849eeef9585"/>
+				<textFieldExpression><![CDATA[$F{total_avance}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="307" y="34" width="81" height="1" uuid="6e6c596e-5fad-4876-9919-17998574fea3"/>
+			</line>
+			<line>
+				<reportElement x="721" y="33" width="78" height="1" uuid="5afa93a7-586e-44c6-bccf-b829cf6798a5"/>
+			</line>
+			<line>
+				<reportElement x="307" y="-20" width="1" height="54" uuid="7396a825-2c89-46a9-ae72-949120c91900"/>
+			</line>
+			<line>
+				<reportElement x="721" y="-72" width="1" height="105" uuid="b03161f8-d85c-4d6d-bb2c-7eb6166725f5"/>
+			</line>
+			<line>
+				<reportElement x="799" y="-49" width="1" height="82" uuid="7b0c8c8b-9bcc-4182-855b-5c2d55ae0aa8"/>
+			</line>
+			<line>
+				<reportElement x="388" y="-35" width="1" height="69" uuid="58df8960-6401-45f1-89e1-32d5b20e3e75"/>
+			</line>
+		</band>
+	</columnFooter>
+</jasperReport>

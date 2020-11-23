@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4be1d6f4-2b08-42cb-8606-96ed53086752">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="ANNEE_CLASIFI" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select tab_contrat.clasifi_contrat as classifi,tab_paie.annee_bulletin as annee, sum(tab_paie.totale_av_bulletin) as salaire_annee,( select sum(tab_paie.totale_av_bulletin) as salaire from tab_paie where annee_bulletin=$P{ANNEE_CLASIFI} group by tab_paie.annee_bulletin) as somme from tab_paie inner join tab_contrat on tab_contrat.num_perso = tab_paie.num_perso where tab_paie.annee_bulletin=$P{ANNEE_CLASIFI} group by tab_contrat.clasifi_contrat]]>
+	</queryString>
+	<field name="classifi" class="java.lang.String"/>
+	<field name="annee" class="java.lang.String"/>
+	<field name="salaire_annee" class="java.lang.Double"/>
+	<field name="somme" class="java.lang.Double"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<columnHeader>
+		<band height="161" splitType="Stretch">
+			<staticText>
+				<reportElement x="6" y="140" width="132" height="20" uuid="31b07f37-3501-4536-b19d-202db23684cd"/>
+				<text><![CDATA[Classification personnel]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="215" y="140" width="272" height="20" uuid="baea66c1-c21b-4ca8-955c-8ed24d65c7ef"/>
+				<text><![CDATA[Somme de salaire pour chaque classification personnel]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="131" y="119" width="156" height="20" uuid="d8cdd2b9-398d-4f8a-b802-18d43d72020f"/>
+				<textFieldExpression><![CDATA[$F{somme}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="287" y="119" width="57" height="20" uuid="9d921444-276c-4cef-8404-82c43a58437b"/>
+				<text><![CDATA[AR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="119" width="118" height="20" uuid="4be3d603-305c-45b3-8964-84511ef0c065"/>
+				<text><![CDATA[TOTAL DU SALAIRE:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="139" width="556" height="1" uuid="5367ec00-b69d-4159-bce4-8ec2fdf01e19"/>
+			</line>
+			<staticText>
+				<reportElement x="386" y="0" width="69" height="20" uuid="ea1dfb5f-47b3-4a7e-b7f8-8ed804361ea7"/>
+				<text><![CDATA[Aujourd'hui le:]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="455" y="0" width="100" height="20" uuid="4908745c-e6a8-4464-9232-21de04652b3b"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="386" y="119" width="100" height="20" uuid="8d264fe0-f12c-4a45-9317-49d40eb09868"/>
+				<text><![CDATA[Pour l'année :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="220" y="43" width="204" height="31" uuid="ab8376a1-c1b5-4165-9a6c-8183ba0e4dd9"/>
+				<textElement>
+					<font size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SALAIRE GLOBAL ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="486" y="120" width="70" height="20" uuid="aa688b81-7d27-49cf-b307-19d685782d6c"/>
+				<textFieldExpression><![CDATA[$F{annee}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="160" width="555" height="1" uuid="d570b309-7fa7-4551-b0db-4067641a4531"/>
+			</line>
+			<staticText>
+				<reportElement x="2" y="22" width="219" height="21" forecolor="#006699" uuid="abc06cae-512a-4728-8546-de6d9d74027d"/>
+				<textElement>
+					<font size="9" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[ BP:1462 ZOROZOROANA-FIANARANTSOA 301                 ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="29" y="2" width="124" height="20" forecolor="#006699" uuid="f9742bfa-00fc-4918-ae59-c693d7c7d203"/>
+				<textElement>
+					<font size="14" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[AUTO-TRACTOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="4" y="43" width="217" height="20" forecolor="#006699" uuid="afadf7f2-647f-40b9-8232-0816df3d135c"/>
+				<textElement>
+					<font size="9" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Tél:020 75 509 01 - 034 75 509 01]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="131" y="74" width="353" height="31" uuid="72814a80-eb3a-48eb-b324-79ea96d036f6"/>
+				<textElement>
+					<font size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PAR CLASSIFICATION PERSONNEL]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="39" splitType="Stretch">
+			<textField>
+				<reportElement x="10" y="0" width="100" height="20" uuid="204631cf-53e3-4c94-bee1-91b3daf86ec6"/>
+				<textFieldExpression><![CDATA[$F{classifi}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="274" y="0" width="100" height="20" uuid="63f533a8-394f-40be-b216-32225766f2cd"/>
+				<textFieldExpression><![CDATA[$F{salaire_annee}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="20" width="555" height="1" uuid="62afba83-e081-4cb9-8837-5ea499e70115"/>
+			</line>
+			<line>
+				<reportElement x="156" y="-22" width="1" height="42" uuid="c09b4d64-c0b8-4116-b550-5966def2de03"/>
+			</line>
+			<line>
+				<reportElement x="0" y="-21" width="1" height="41" uuid="d9560c3a-3c02-4cab-97b2-f18211a17a30"/>
+			</line>
+			<line>
+				<reportElement x="555" y="-22" width="1" height="42" uuid="b8d3fe11-46b4-4c0a-805c-e04803a46e2d"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<textField>
+				<reportElement x="431" y="25" width="80" height="20" uuid="ee05ef80-c7e5-47ba-bcf5-ec5c5efdf706"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="511" y="25" width="40" height="20" uuid="e7f00b98-7509-4bd3-83ef-ae88b35f863a"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="13" width="555" height="1" uuid="eb437ccd-3f6d-4e41-8a8c-014984fe0daf"/>
+			</line>
+		</band>
+	</columnFooter>
+</jasperReport>

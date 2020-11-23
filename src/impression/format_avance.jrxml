@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="992" pageHeight="566" orientation="Landscape" columnWidth="952" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f149642c-ff28-4203-968c-ff6aebb21a67">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[select tab_perso.num_perso as num, tab_perso.nom_pre_perso as nom from tab_perso]]>
+	</queryString>
+	<field name="num" class="java.lang.String"/>
+	<field name="nom" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<columnHeader>
+		<band height="98" splitType="Stretch">
+			<staticText>
+				<reportElement x="3" y="76" width="61" height="20" uuid="5151b6cf-90dd-4873-b999-da829c071783"/>
+				<text><![CDATA[Matricule]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="184" y="76" width="120" height="20" uuid="d50e74ad-fecf-4b0f-a89c-c9389c44f886"/>
+				<text><![CDATA[Nom et prénom]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="521" y="76" width="100" height="20" uuid="b2dfaeec-55ae-4fd0-b840-77358b313ea1"/>
+				<text><![CDATA[Somme à retirer]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="799" y="76" width="120" height="20" uuid="f24f9d70-e82f-4edb-bb0a-056814d6d996"/>
+				<text><![CDATA[Signature du personne]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="355" y="14" width="231" height="31" uuid="abbeb763-c891-49d5-9346-16d98aad09af"/>
+				<textElement>
+					<font size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[AVANCE SUR SALAIRE]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="819" y="10" width="100" height="20" uuid="a10f5d2c-33c4-4cdf-8e6f-2842d93bbbf2"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="750" y="10" width="69" height="20" uuid="2a48aa73-1264-47f9-9d3f-7a8d2ac221a0"/>
+				<text><![CDATA[Aujourd'hui le:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="24" width="219" height="21" forecolor="#0099FF" uuid="b90f2321-9412-490c-8b5d-4d752df44e06"/>
+				<textElement>
+					<font size="9" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[ BP:1462 ZOROZOROANA-FIANARANTSOA 301                 ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="37" width="219" height="20" forecolor="#0099FF" uuid="13d1c589-5e49-444d-8f77-5a3ae081ef4c"/>
+				<textElement>
+					<font size="9" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Tél:020 75 509 01 - 034 75 509 01]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="58" y="10" width="97" height="20" forecolor="#0099FF" uuid="d7ba8541-d1cd-4b8d-8ad2-ab2eb9197da6"/>
+				<textElement>
+					<font size="11" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[AUTO-TRACTOR]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="72" width="952" height="1" uuid="e9110c9f-68a9-41b9-b8b2-eb1bbf6c9dbf"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="45" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="8" width="61" height="20" uuid="d4b66988-1e68-4160-9cde-be7f3cddd131"/>
+				<textFieldExpression><![CDATA[$F{num}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="115" y="8" width="280" height="20" uuid="ee93eae9-d144-4efd-9882-2f0d2ba9cd79"/>
+				<textFieldExpression><![CDATA[$F{nom}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="1" width="952" height="1" uuid="96210316-39b6-45e5-9e66-4cd9d7716a76"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="21" splitType="Stretch">
+			<textField>
+				<reportElement x="830" y="0" width="82" height="20" uuid="7012dc0f-d610-4574-9639-6d293a474431"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="910" y="0" width="42" height="20" uuid="61a8e446-1473-4991-bcb5-eb87f09e7e1c"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="3" y="0" width="949" height="2" uuid="942098ad-a7bc-4453-ba34-c7858db9cfac"/>
+			</line>
+		</band>
+	</columnFooter>
+</jasperReport>
